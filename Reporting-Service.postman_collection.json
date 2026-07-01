@@ -1,0 +1,266 @@
+{
+  "info": {
+    "_postman_id": "9ac94afc-757e-4668-b21c-0a21bb137375",
+    "name": "Reporting-Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43487158"
+  },
+  "item": [
+    {
+      "name": "Health-Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/healthz",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "healthz"
+          ]
+        },
+        "description": "Generated from cURL: curl http://localhost:8080/healthz\r\n"
+      },
+      "response": []
+    },
+    {
+      "name": "List-Report",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/reports/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "reports",
+            ""
+          ]
+        },
+        "description": "Generated from cURL: curl http://localhost:8080/api/v1/reports/\r\n"
+      },
+      "response": []
+    },
+    {
+      "name": "Get-Report-By-id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/reports/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "reports",
+            "1"
+          ]
+        },
+        "description": "Generated from cURL: curl http://localhost:8080/api/v1/reports/1\r\n"
+      },
+      "response": []
+    },
+    {
+      "name": "Preview-Report",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/reports/1/preview",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "reports",
+            "1",
+            "preview"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/reports/1/preview \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{}'\r\n"
+      },
+      "response": []
+    },
+    {
+      "name": "Generate-Report",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"filters\": [\r\n      { \"field\": \"status\", \"operator\": \"=\", \"value\": \"Active\" }\r\n    ],\r\n    \"sort\": [\r\n      { \"field\": \"created_at\", \"direction\": \"desc\" }\r\n    ],\r\n    \"page\": 1,\r\n    \"limit\": 10\r\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/reports/1/generate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "reports",
+            "1",
+            "generate"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/reports/1/generate \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"filters\": [\r\n      { \"field\": \"status\", \"operator\": \"=\", \"value\": \"Active\" }\r\n    ],\r\n    \"sort\": [\r\n      { \"field\": \"created_at\", \"direction\": \"desc\" }\r\n    ],\r\n    \"page\": 1,\r\n    \"limit\": 10\r\n  }'\r\n"
+      },
+      "response": []
+    },
+    {
+      "name": "Generate-Between-Filter",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"filters\": [\r\n      { \"field\": \"created_at\", \"operator\": \"between\", \"value\": [\"2026-01-01\", \"2026-06-30\"] }\r\n    ]\r\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/reports/1/generate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "reports",
+            "1",
+            "generate"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/reports/1/generate \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"filters\": [\r\n      { \"field\": \"created_at\", \"operator\": \"between\", \"value\": [\"2026-01-01\", \"2026-06-30\"] }\r\n    ]\r\n  }'\r\n"
+      },
+      "response": []
+    },
+    {
+      "name": "Export-CSV",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"format\":\"csv\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/reports/1/export",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "reports",
+            "1",
+            "export"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/reports/1/export \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\"format\":\"csv\"}' \\\r\n  -o report.csv\r\n"
+      },
+      "response": []
+    },
+    {
+      "name": "Export-Excel",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"format\":\"xlsx\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/reports/1/export",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "reports",
+            "1",
+            "export"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/reports/1/export \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\"format\":\"xlsx\"}' \\\r\n  -o report.xlsx\r\n"
+      },
+      "response": []
+    }
+  ]
+}
