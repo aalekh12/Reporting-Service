@@ -347,3 +347,5 @@ make run
 ```
 
 See [`Makefile`](Makefile) and [`configs/`](configs) for env vars.
+
+[`Postman Collection`](docs/Reporting-Service.postman_collection.json)
