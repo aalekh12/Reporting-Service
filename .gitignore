@@ -1,0 +1,23 @@
+# Build artifacts
+/bin/
+*.exe
+*.exe~
+*.dll
+*.test
+
+# Test/coverage output
+coverage.out
+coverage.html
+
+# Runtime logs
+*.log
+
+# Go
+/vendor/
+
+# Editor/OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
